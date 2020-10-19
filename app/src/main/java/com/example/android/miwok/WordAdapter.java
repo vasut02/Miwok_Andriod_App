@@ -1,6 +1,8 @@
 package com.example.android.miwok;
 
 import android.app.Activity;
+import android.content.Context;
+import android.media.MediaPlayer;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.constraint.ConstraintLayout;
@@ -65,6 +67,19 @@ public class WordAdapter extends ArrayAdapter<Word> {
             iconView.setImageResource(wordTranslation.getmImageResourceId());
         else
             iconView.setVisibility(View.GONE);
+
+        //for audio file
+        ConstraintLayout list_item = (ConstraintLayout) listItemView.findViewById(R.id.List_view);
+        int audio_id = wordTranslation.getmAudioResourceId();
+        final MediaPlayer mediaPlayer = MediaPlayer.create( getContext() , audio_id );
+        list_item.setOnClickListener( new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+
+                mediaPlayer.start();
+            }
+        });
         // Return the whole list item layout (containing 2 TextViews and an ImageView)
         // so that it can be shown in the ListView
         return listItemView;
