@@ -32,7 +32,6 @@
         android:paddingTop="2dp"
         android:paddingRight="16dp"
         android:paddingBottom="16dp"
-
         android:text="TextView"
         android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/relativeLayout"
